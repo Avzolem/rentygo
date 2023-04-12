@@ -2,9 +2,10 @@ import { NextSeo } from "next-seo";
 
 //EDIT ME PLEASE
 const data = {
-    siteName: "EzTicket.com",
-    title: "EzTicket",
-    description: "Get EzTickets for your favorite events",
+    siteName: "rentygo.vercel.app",
+    title: "RentyGo",
+    description:
+        "Rent Cars, Drive the way you love. Cars for rent in Chihuahua, Mexico.",
     url: "https://avsolem.com",
     imageUrl: "/og.png",
     twitter: "@avsolem",
