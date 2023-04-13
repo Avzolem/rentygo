@@ -19,6 +19,23 @@ handler.use(async (req, res, next) => {
   }
 });
 
+//GET RIDES
+handler.get(async (req, res) => {
+  const { db } = req;
+  //params piblicKey
+
+  try {
+    //get ride info
+    const rides = await db.collection("rides").find({}).toArray();
+    res.json({
+      rides,
+    });
+  } catch (error) {
+    console.error("Error getting ride info:", error);
+    res.status(500).end("Error getting ride info");
+  }
+});
+
 //NEW RIDE
 handler.post(async (req, res) => {
   try {
