@@ -4,16 +4,18 @@ import { Fragment } from "react";
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/solid";
 import { QrReader } from "react-qr-reader";
 import { useEffect, useState } from "react";
-import { decode } from "js-base64";
 import axios from "axios";
 import LoadingCircle from "@/components/common/LoadingCircle";
+import { useRouter } from "next/router";
 
-const QRModal = ({ isOpen = false, setIsOpen, setJustScanned, event }) => {
+const QRModal = ({ isOpen = false, setIsOpen, setJustScanned, publicKey }) => {
   const [resultData, setResultData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [scanned, setScanned] = useState(false);
   const [globalError, setGlobalError] = useState(null);
+  const [carData, setCarData] = useState(null);
   const scanDelay = 500;
+  const router = useRouter();
 
   if (!isOpen) {
     return null;
@@ -31,14 +33,32 @@ const QRModal = ({ isOpen = false, setIsOpen, setJustScanned, event }) => {
 
   //SCAN EVENTS
   const handleScan = async (data, error) => {
-    console.log("data =>", data);
     if (!!data) {
       setLoading(true);
-      const text = data.text;
-      console.log("text =>", text);
+      const carId = data?.text;
       setLoading(false);
       setScanned(true);
-      setResultData(text);
+
+      try {
+        //go to Mongo and add a new ride...
+        const { data: newRide } = await axios.post("/api/rides", {
+          carId: carId,
+          publicKey: publicKey,
+        });
+
+        console.log("new ride =>", newRide);
+        const { id, rideId } = newRide;
+
+        setResultData(`Your car with id ${carId} is ready to use!`);
+        setCarData({ ...newRide, id: id });
+
+        setTimeout(() => {
+          router.push(`/rides/${rideId}`);
+        }, 2000);
+      } catch (error) {
+        console.error("handleScan error", error.response.data);
+        setGlobalError(error.response.data);
+      }
     }
 
     if (!!error && JSON.stringify(error) !== JSON.stringify({})) {
@@ -147,9 +167,26 @@ const QRModal = ({ isOpen = false, setIsOpen, setJustScanned, event }) => {
                               <CheckCircleIcon />
                             </div>
 
-                            <p className="text-sm">
+                            <p className="mt-4 text-base">
                               Your car is open, enjoy your ride!
                             </p>
+
+                            <div className="datacar my-4 text-center">
+                              <p className="font-bold ">Your car info:</p>
+                              <p className="font-base font-normal">
+                                {carData?.company} {carData?.model}
+                              </p>
+
+                              <p className="font-base font-normal">
+                                <span className="font-bold">Plates</span>{" "}
+                                {carData?.plate}
+                              </p>
+
+                              <div className="container mt-4 font-normal">
+                                <LoadingCircle color="#000" />
+                                <p className="mt-2">Redirecting... </p>
+                              </div>
+                            </div>
                           </div>
 
                           <div className="buttoncontainer mt-4 flex items-center justify-center">

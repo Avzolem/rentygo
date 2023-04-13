@@ -1,5 +1,5 @@
 import MainLayout from "@/components/layouts/MainLayout";
-import ParticlesBackground from "../components/common/ParticlesBackground";
+import ParticlesBackground from "@/components/common/ParticlesBackground";
 
 export default function Rides() {
     return (
