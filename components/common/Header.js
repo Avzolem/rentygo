@@ -11,7 +11,7 @@ import Image from "next/image";
 import { connectWallet } from "@heroicons/react/solid";
 import toast from "react-hot-toast";
 import { useStorageUpload } from "@thirdweb-dev/react";
-import { AuthContext } from "@/components/AuthProvider";
+import { signIn, AuthContext } from "@/components/AuthProvider";
 
 import LoadingCircle from "@/components/common/LoadingCircle";
 
@@ -37,7 +37,7 @@ const Header = () => {
     const [publicKey, setPublicKey] = useState(null);
 
     return (
-        <Popover className="relative bg-white">
+        <Popover className="relative ">
             <div
                 className="pointer-events-none absolute inset-0 z-20 shadow"
                 aria-hidden="true"
@@ -66,7 +66,7 @@ const Header = () => {
                         <Popover.Group as="nav" className="flex space-x-10">
                             {navigation.pages.map((page) => (
                                 <Link key={page.name} href={page.href}>
-                                    <a className="text-base font-medium text-cyan-500 hover:text-cyan-700">
+                                    <a className="text-blackyar text-base font-medium text-black hover:text-cyan-500">
                                         {page.name}
                                     </a>
                                 </Link>

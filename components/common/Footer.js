@@ -40,14 +40,14 @@ const Footer = () => {
                             href={item.href}
                             className="text-cyan-500 "
                         >
-                            <div className="iconcontainer h-6 w-6 cursor-pointer text-cyan-500 hover:text-purple-500">
+                            <div className="iconcontainer h-6 w-6 cursor-pointer text-black hover:text-purple-500">
                                 <SocialIcon type={item.icon} />
                             </div>
                         </a>
                     ))}
                 </div>
                 <div className="mt-8 md:order-1 md:mt-0">
-                    <p className="text-center text-base text-purple-500 hover:text-black">
+                    <p className="text-center text-base text-black hover:text-purple-500">
                         {copyrightLabel}
                     </p>
                 </div>
