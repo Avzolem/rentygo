@@ -1,11 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { Fragment, useState, useContext } from "react";
+import { Fragment, useState, useContext, useEffect } from "react";
 import Link from "next/link";
 import { Popover, Transition, Menu } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { useSession, signOut } from "next-auth/react";
 import classNames from "@/utils/classNames";
-import { useEffect } from "react";
 import { Router, useRouter } from "next/router";
 import Image from "next/image";
 import { connectWallet } from "@heroicons/react/solid";

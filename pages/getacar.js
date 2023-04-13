@@ -1,16 +1,19 @@
 import MainLayout from "@/components/layouts/MainLayout";
 import QRModal from "@/components/forms/QRModal";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "@/components/AuthProvider";
 
 const GetACar = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [justScanned, setJustScanned] = useState(false);
+  const { publicKey } = useContext(AuthContext);
   return (
     <MainLayout>
       <QRModal
         isOpen={modalOpen}
         setIsOpen={setModalOpen}
         setJustScanned={setJustScanned}
+        publicKey={publicKey}
       />
       <main className="relative mb-auto flex flex-col to-black ">
         <div className="mx-auto w-full max-w-md pb-20 pt-16 text-center lg:py-32 ">
