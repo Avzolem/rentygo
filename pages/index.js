@@ -2,8 +2,10 @@ import MainLayout from "@/components/layouts/MainLayout";
 import Hero from "@/components/common/Hero";
 import Head from "next/head";
 import ParticlesBackground from "../components/common/ParticlesBackground";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import { AuthContext } from "@/components/AuthProvider";
+import { Router, useRouter } from "next/router";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -11,6 +13,18 @@ function classNames(...classes) {
 
 export default function Home() {
     const [data, setData] = useState(null);
+    const router = useRouter();
+
+    const {
+        signIn,
+        signOut,
+        name,
+        email,
+        isMinted,
+        setIsMinted,
+        publicKey,
+        truncatePublicKey,
+    } = useContext(AuthContext);
 
     const RentarAuto = async () => {
         await axios
@@ -21,7 +35,7 @@ export default function Home() {
                 },
                 {
                     headers: {
-                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                        "X-AIO-Key": "aio_WCQG45bSAru0CJIam3n5wiIY1htc",
                     },
                 }
             )
@@ -46,7 +60,7 @@ export default function Home() {
                 },
                 {
                     headers: {
-                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                        "X-AIO-Key": "aio_WCQG45bSAru0CJIam3n5wiIY1htc",
                     },
                 }
             )
@@ -71,7 +85,7 @@ export default function Home() {
                 },
                 {
                     headers: {
-                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                        "X-AIO-Key": "aio_WCQG45bSAru0CJIam3n5wiIY1htc",
                     },
                 }
             )
@@ -96,7 +110,7 @@ export default function Home() {
                 },
                 {
                     headers: {
-                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                        "X-AIO-Key": "aio_WCQG45bSAru0CJIam3n5wiIY1htc",
                     },
                 }
             )
@@ -143,33 +157,40 @@ export default function Home() {
 
                             <div className="mt-10 sm:flex sm:justify-center ">
                                 <div className="rounded-md bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500  shadow ">
-                                    <a
-                                        href="/eventos"
-                                        className="flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-white  md:px-10 md:py-4 md:text-lg"
+                                    <button
+                                        onClick={() => {
+                                            signIn();
+                                        }}
                                     >
                                         {" "}
-                                        <span>Check our cars!  </span>
-                                        <svg
+                                        <span className="flex w-full items-center justify-center rounded-md border border-transparent px-8 py-3 text-base font-medium text-white  md:px-10 md:py-4 md:text-lg">
+                                            Connect Wallet   <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="25"
                                             height="25"
-                                            viewBox="0 0 512 512"
+                                            viewBox="0 0 30 30"
                                         >
                                             <path
-                                                d="M488,224c-3-5-32.61-17.79-32.61-17.79,5.15-2.66,8.67-3.21,8.67-14.21,0-12-.06-16-8.06-16H428.86c-.11-.24-.23-.49-.34-.74-17.52-38.26-19.87-47.93-46-60.95C347.47,96.88,281.76,96,256,96s-91.47.88-126.49,18.31c-26.16,13-25.51,19.69-46,60.95,0,.11-.21.4-.4.74H55.94c-7.94,0-8,4-8,16,0,11,3.52,11.55,8.67,14.21C56.61,206.21,28,220,24,224s-8,32-8,80,4,96,4,96H31.94c0,14,2.06,16,8.06,16h80c6,0,8-2,8-16H384c0,14,2,16,8,16h82c4,0,6-3,6-16h12s4-49,4-96S491,229,488,224ZM125.26,268.94A516.94,516.94,0,0,1,70.42,272C50,272,49.3,273.31,47.86,260.56a72.16,72.16,0,0,1,.51-17.51L49,240h3c12,0,23.27.51,44.55,6.78a98,98,0,0,1,30.09,15.06C131,265,132,268,132,268Zm247.16,72L368,352H144s.39-.61-5-11.18c-4-7.82,1-12.82,8.91-15.66C163.23,319.64,208,304,256,304s93.66,13.48,108.5,21.16C370,328,376.83,330,372.42,341Zm-257-136.53a96.23,96.23,0,0,1-9.7.07c2.61-4.64,4.06-9.81,6.61-15.21,8-17,17.15-36.24,33.44-44.35,23.54-11.72,72.33-17,110.23-17s86.69,5.24,110.23,17c16.29,8.11,25.4,27.36,33.44,44.35,2.57,5.45,4,10.66,6.68,15.33-2,.11-4.3,0-9.79-.19Zm347.72,56.11C461,273,463,272,441.58,272a516.94,516.94,0,0,1-54.84-3.06c-2.85-.51-3.66-5.32-1.38-7.1a93.84,93.84,0,0,1,30.09-15.06c21.28-6.27,33.26-7.11,45.09-6.69a3.22,3.22,0,0,1,3.09,3A70.18,70.18,0,0,1,463.14,260.56Z"
+                                                d="M1.5 2A1.5 1.5 0 0 0 0 3.5v2h6a.5.5 0 0 1 .5.5c0 .253.08.644.306.958.207.288.557.542 1.194.542.637 0 .987-.254 1.194-.542.226-.314.306-.705.306-.958a.5.5 0 0 1 .5-.5h6v-2A1.5 1.5 0 0 0 14.5 2h-13z"
+                                                fill="white"
+                                            ></path>{" "}
+                                            <path
+                                                d="M16 6.5h-5.551a2.678 2.678 0 0 1-.443 1.042C9.613 8.088 8.963 8.5 8 8.5c-.963 0-1.613-.412-2.006-.958A2.679 2.679 0 0 1 5.551 6.5H0v6A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-6z"
                                                 fill="white"
                                             ></path>
                                         </svg>
-                                    </a>
+                                        </span>
+                                       
+                                    </button>
                                 </div>
-                                <div className="mt-3 rounded-md shadow sm:ml-3 sm:mt-0">
+                                {/* <div className="mt-3 rounded-md shadow sm:ml-3 sm:mt-0">
                                     <a
                                         href="#init"
                                         className="flex w-full items-center justify-center rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-cyan-500 hover:bg-gray-200 md:px-10 md:py-4 md:text-lg"
                                     >
                                         ¿What is RentyGo?
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
