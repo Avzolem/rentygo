@@ -23,9 +23,8 @@ const logoUrl = "/logo.png";
 const navigation = {
     categories: [],
     pages: [
-        { name: "CARS", href: "/eventos" },
+        { name: "CAR CATALOGUE", href: "/eventos" },
         { name: "CONTACT US ", href: "/contact" },
-        { name: "CANDY MACHINE", href: "/candymachine" },
         { name: "SLIDE DECK ", href: "/slideck" },
     ],
 };
