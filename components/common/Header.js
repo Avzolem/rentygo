@@ -31,27 +31,15 @@ let phantom;
 
 const Header = () => {
     const router = useRouter();
+    const { signOut, publicKey } = useContext(AuthContext);
 
-    const {
-        signIn,
-        signOut,
-        name,
-        email,
-        isMinted,
-        setIsMinted,
-        publicKey,
-        truncatePublicKey,
-    } = useContext(AuthContext);
-
-    console.log("publicKey", publicKey);
-
-    //handle signout stat
-    useEffect(() => {
-        if (!publicKey) {
-            console.log("log out and redirect");
-            router.push("/");
-        }
-    }, [publicKey]);
+    //   //handle signout stat
+    //   useEffect(() => {
+    //     if (!publicKey) {
+    //       console.log("log out and redirect");
+    //       router.push("/");
+    //     }
+    //   }, [router]);
 
     return (
         <Popover className="relative ">
@@ -93,7 +81,7 @@ const Header = () => {
                     {/* //signout from wallet if connected */}
                     {publicKey && (
                         <button
-                            className="rounded-xl bg-cyan-800 px-2 py-2 text-white"
+                            className="rounded-xl bg-red-400 px-2 py-2 text-white"
                             onClick={() => {
                                 signOut();
                             }}

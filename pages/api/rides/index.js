@@ -3,6 +3,7 @@ import nc from "next-connect";
 import clientPromise from "@/lib/mongodb";
 import ncoptions from "@/config/ncoptions";
 import { dateNowUnix } from "@/utils/dates";
+import hardwareactions from "@/lib/hardwareactions";
 
 const handler = nc(ncoptions); //middleware next conect handler
 
@@ -15,6 +16,23 @@ handler.use(async (req, res, next) => {
   } catch (error) {
     console.error("Error connecting to DB in /api/users:", error);
     res.status(500).end("Error connecting to DB");
+  }
+});
+
+//GET RIDES
+handler.get(async (req, res) => {
+  const { db } = req;
+  //params piblicKey
+
+  try {
+    //get ride info
+    const rides = await db.collection("rides").find({}).toArray();
+    res.json({
+      rides,
+    });
+  } catch (error) {
+    console.error("Error getting ride info:", error);
+    res.status(500).end("Error getting ride info");
   }
 });
 
@@ -33,7 +51,7 @@ handler.post(async (req, res) => {
     console.log("car =>", car);
     if (!car) {
       console.error("car does not exist");
-      res.status(500).end(`Sorry, This car does not exists 😢`);
+      res.status(500).end(`Sorry, This car does not existsx 😢`);
       return;
     }
 
@@ -45,6 +63,7 @@ handler.post(async (req, res) => {
     if (inUse) {
       console.error("car is in use");
       res.status(400).end(`Sorry, Selected Car is in use 😢`);
+      return;
     }
 
     //create new default ride
@@ -56,6 +75,15 @@ handler.post(async (req, res) => {
     };
 
     const savedRide = await db.collection("rides").insertOne(newRide);
+
+    //hardware on
+    try {
+      hardwareactions.startmotor();
+    } catch (error) {
+      console.error("Error turning on hardware:", error);
+      res.status(500).end(`Sorry, An error occurred 😢`);
+    }
+
     res.json({
       ...car,
       success: true,

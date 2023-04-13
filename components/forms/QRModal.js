@@ -87,7 +87,7 @@ const QRModal = ({ isOpen = false, setIsOpen, setJustScanned, publicKey }) => {
           <div className="fixed inset-0 w-full bg-black bg-opacity-25" />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto">
+        <div className="fixed inset-0 overflow-y-auto text-black">
           <div className="flex min-h-full w-full items-center justify-center text-center lg:p-4">
             <Transition.Child
               as={Fragment}
