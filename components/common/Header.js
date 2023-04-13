@@ -11,7 +11,7 @@ import Image from "next/image";
 import { connectWallet } from "@heroicons/react/solid";
 import toast from "react-hot-toast";
 import { useStorageUpload } from "@thirdweb-dev/react";
-import { signIn, AuthContext } from "@/components/AuthProvider";
+import { AuthContext } from "@/components/AuthProvider";
 
 import LoadingCircle from "@/components/common/LoadingCircle";
 
@@ -34,7 +34,17 @@ let phantom;
 
 const Header = () => {
     const router = useRouter();
-    const [publicKey, setPublicKey] = useState(null);
+
+    const {
+        signIn,
+        signOut,
+        name,
+        email,
+        isMinted,
+        setIsMinted,
+        publicKey,
+        truncatePublicKey,
+    } = useContext(AuthContext);
 
     return (
         <Popover className="relative ">

@@ -12,7 +12,7 @@ function classNames(...classes) {
 export default function Home() {
     const [data, setData] = useState(null);
 
-    const fetchData = async () => {
+    const RentarAuto = async () => {
         await axios
             .post(
                 `https://io.adafruit.com/api/v2/rnajera/feeds/led1/data`,
@@ -21,7 +21,82 @@ export default function Home() {
                 },
                 {
                     headers: {
-                        "X-AIO-Key": "aio_BZld18iWpU77aFivDIKbUPlmmcT4",
+                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                    },
+                }
+            )
+            .then(
+                (response) => {
+                    console.log("Este es el result.data =>  ", response);
+                },
+                (error) => {
+                    console.log(
+                        "Error al enviar post al api de Adafruit",
+                        error
+                    );
+                }
+            );
+    };
+    const AbrirAuto = async () => {
+        await axios
+            .post(
+                `https://io.adafruit.com/api/v2/rnajera/feeds/led1/data`,
+                {
+                    value: "2",
+                },
+                {
+                    headers: {
+                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                    },
+                }
+            )
+            .then(
+                (response) => {
+                    console.log("Este es el result.data =>  ", response);
+                },
+                (error) => {
+                    console.log(
+                        "Error al enviar post al api de Adafruit",
+                        error
+                    );
+                }
+            );
+    };
+    const PrenderMotor = async () => {
+        await axios
+            .post(
+                `https://io.adafruit.com/api/v2/rnajera/feeds/led1/data`,
+                {
+                    value: "3",
+                },
+                {
+                    headers: {
+                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
+                    },
+                }
+            )
+            .then(
+                (response) => {
+                    console.log("Este es el result.data =>  ", response);
+                },
+                (error) => {
+                    console.log(
+                        "Error al enviar post al api de Adafruit",
+                        error
+                    );
+                }
+            );
+    };
+    const ApagarMotor = async () => {
+        await axios
+            .post(
+                `https://io.adafruit.com/api/v2/rnajera/feeds/led1/data`,
+                {
+                    value: "4",
+                },
+                {
+                    headers: {
+                        "X-AIO-Key": "aio_KzPu42BpKW9jWZItDEZnvxcXxYuC",
                     },
                 }
             )
@@ -132,12 +207,36 @@ export default function Home() {
                                 </div>
                             </div>
                             <button
-                                className="  rounded-md bg-cyan-500 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                                className="  rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
                                 onClick={() => {
-                                    fetchData();
+                                    RentarAuto();
                                 }}
                             >
-                                Turn on button
+                                Rentar Auto
+                            </button>
+                            <button
+                                className="  rounded-md bg-red-500 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                                onClick={() => {
+                                    AbrirAuto();
+                                }}
+                            >
+                                Abrir Auto
+                            </button>
+                            <button
+                                className="  rounded-md bg-yellow-500 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                                onClick={() => {
+                                    PrenderMotor();
+                                }}
+                            >
+                                Prender Motor
+                            </button>
+                            <button
+                                className="  rounded-md bg-gray-800 px-4 py-2 text-sm font-medium text-white hover:bg-cyan-700"
+                                onClick={() => {
+                                    ApagarMotor();
+                                }}
+                            >
+                                Apagar Motor
                             </button>
                         </div>
                     </div>

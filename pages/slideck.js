@@ -49,17 +49,17 @@ export default function Slideck() {
             <ParticlesBackground />
             <MainLayout className="relative">
                 <div className="">
-                    <div className="mx-auto max-w-2xl justify-center py-16 px-4 text-center sm:py-20 ">
+                    <div className="mx-auto max-w-2xl justify-center px-4 py-16 text-center sm:py-20 ">
                         <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
                             <span> This is how it works</span>
                             <span className="  bg-gradient-to-r  from-emerald-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent xl:inline">
                                 {" "}
-                                EzTicket
+                                RentyGo
                             </span>
                         </h2>
                         <span className="text-2xl font-bold tracking-tight text-white  ">
                             We try to make it as easy as possible for you to get
-                            your EzTicket
+                            rental cars.
                         </span>
                         <div className="mt-8 flex justify-center">
                             <div class="w-full">
@@ -83,7 +83,7 @@ export default function Slideck() {
                                             >
                                                 <dt className="inline font-semibold text-white">
                                                     <feat.icon
-                                                        className="absolute top-1 left-1 h-5 w-5 text-indigo-500"
+                                                        className="absolute left-1 top-1 h-5 w-5 text-indigo-500"
                                                         aria-hidden="true"
                                                     />
                                                     {feat.name}
