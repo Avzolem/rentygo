@@ -52,7 +52,7 @@ export default function Home() {
                                     Find on{" "}
                                 </span>{" "}
                                 <span className="  bg-gradient-to-r  from-cyan-500 via-indigo-500 to-purple-500 bg-clip-text text-transparent xl:inline">
-                                    RentyGo{" "}
+                                    RentyGo,{" "}
                                 </span>
                                 <span className=" text-black xl:inline">
                                     drive in{" "}

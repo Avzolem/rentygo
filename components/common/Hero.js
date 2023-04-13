@@ -159,7 +159,7 @@ export default function Hero() {
                                 </div>
                             </div>
                             <div className="sm:px-6 lg:px-0">
-                                <div className="relative isolate overflow-hidden bg-purple-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
+                                <div className="relative isolate overflow-hidden bg-cyan-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pl-16 sm:pr-0 sm:pt-16 lg:mx-0 lg:max-w-none">
                                     <div
                                         className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white"
                                         aria-hidden="true"
@@ -170,7 +170,7 @@ export default function Hero() {
                                             alt="Product screenshot"
                                             width={2432}
                                             height={1442}
-                                            className="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-purple-700 ring-1 ring-white/10"
+                                            className="-mb-12 w-[57rem] max-w-none rounded-tl-xl bg-cyan-700 ring-1 ring-white/10"
                                         />
                                     </div>
                                     <div
