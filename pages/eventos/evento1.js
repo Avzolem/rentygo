@@ -4,7 +4,7 @@ import Image from "next/image";
 import ParticlesBackground from "@/components/common/ParticlesBackground";
 
 import React, { useState } from "react";
-import { IDL } from "../../public/solana_movies";
+
 import { Connection, PublicKey, clusterApiUrl } from "@solana/web3.js";
 import { Program, Provider, web3 } from "@project-serum/anchor";
 import { useRouter } from "next/router";
@@ -14,61 +14,6 @@ function classNames(...classes) {
 }
 
 export default function AddMovie() {
-    const router = useRouter();
-    const [inputMovieValue] = useState("https://i.imgur.com/UpAO33M.png");
-    const programID = new PublicKey(IDL.metadata.address);
-
-    const { SystemProgram, Keypair } = web3;
-    const network = clusterApiUrl("devnet");
-
-    const opts = {
-        preflightCommitment: "processed",
-    };
-
-    const getProvider = () => {
-        const connection = new Connection(network, opts.preflightCommitment);
-        const provider = new Provider(
-            connection,
-            window.solana,
-            opts.preflightCommitment
-        );
-        return provider;
-    };
-
-    const stringToBytes = (input) => {
-        return new TextEncoder().encode(input);
-    };
-
-    const addMovie = async () => {
-        if (inputMovieValue.length > 0) {
-            console.log("Movie link:", inputMovieValue);
-
-            var provider = getProvider();
-            var program = new Program(IDL, programID, provider);
-            const [pda] = await PublicKey.findProgramAddressSync(
-                [
-                    stringToBytes("gif_account"),
-                    provider.wallet.publicKey.toBytes(),
-                    stringToBytes(inputMovieValue),
-                ],
-                program.programId
-            );
-
-            await program.rpc.initialize(inputMovieValue, {
-                accounts: {
-                    movieGif: pda,
-                    user: provider.wallet.publicKey,
-                    systemProgram: SystemProgram.programId,
-                },
-            });
-
-            // setInputMovieValue("https://i.imgur.com/YB0KTv1.jpg");
-            router.push("/eventos/success");
-        } else {
-            console.log("Empty input. Try again.");
-        }
-    };
-
     return (
         <div>
             <ParticlesBackground />
@@ -105,7 +50,7 @@ export default function AddMovie() {
                                         </p>
 
                                         <div className="rounded-md shadow">
-                                            <div className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-indigo-700 via-violet-700 to-purple-700 px-8 py-3 text-base font-medium text-white  md:py-4 md:px-10 md:text-lg">
+                                            <div className="flex w-full items-center justify-center rounded-md border border-transparent bg-gradient-to-r from-indigo-700 via-violet-700 to-purple-700 px-8 py-3 text-base font-medium text-white  md:px-10 md:py-4 md:text-lg">
                                                 <button onClick={addMovie}>
                                                     Comprar EzTicket
                                                 </button>

@@ -91,13 +91,13 @@ export default function Home() {
                     )}
                 </div>
 
-                <div className="mx-auto max-w-7xl pt-16 pb-20 text-center lg:py-32 ">
+                <div className="mx-auto max-w-7xl pb-20 pt-16 text-center lg:py-32 ">
                     <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
                         {/* Evento 1 */}
 
                         <div className="mx-4 rounded-md bg-[#7e22c3] shadow">
                             <Link href="/eventos/evento1" passHref>
-                                <div className="thumbitem my-4 mx-4 mb-4 cursor-pointer  shadow-md">
+                                <div className="thumbitem mx-4 my-4 mb-4 cursor-pointer  shadow-md">
                                     <div className="photocontainer">
                                         <Image
                                             src="/images/evento1.png"
@@ -126,7 +126,7 @@ export default function Home() {
 
                         <div className="mx-4 rounded-md  bg-[#7e22c3] shadow">
                             <Link href="/eventos/evento2" passHref>
-                                <div className="thumbitem my-4 mx-4 mb-4 cursor-pointer  shadow-md">
+                                <div className="thumbitem mx-4 my-4 mb-4 cursor-pointer  shadow-md">
                                     <div className="photocontainer">
                                         <Image
                                             src="/images/evento2.png"
@@ -154,7 +154,7 @@ export default function Home() {
                         {/* Evento 3 */}
                         <div className="mx-4 rounded-md  bg-[#7e22c3] shadow">
                             <Link href="/eventos/evento3" passHref>
-                                <div className="thumbitem my-4 mx-4 mb-4 cursor-pointer  shadow-md">
+                                <div className="thumbitem mx-4 my-4 mb-4 cursor-pointer  shadow-md">
                                     <div className="photocontainer">
                                         <Image
                                             src="/images/evento3.png"
@@ -183,7 +183,7 @@ export default function Home() {
 
                         <div className="mx-4 rounded-md  bg-[#7e22c3] shadow">
                             <Link href="/eventos/" passHref>
-                                <div className="thumbitem my-4 mx-4 mb-4 cursor-pointer  shadow-md">
+                                <div className="thumbitem mx-4 my-4 mb-4 cursor-pointer  shadow-md">
                                     <div className="photocontainer">
                                         <Image
                                             src="/images/evento4.png"
