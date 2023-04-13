@@ -48,10 +48,6 @@ export default function Home() {
                         content="RentyGo is a platform that allows you to rent your car to other people"
                     />
                 </Head>
-                <script
-                    src="https://kit.fontawesome.com/16679573af.js"
-                    crossorigin="anonymous"
-                ></script>
 
                 <main className="relative mb-auto flex flex-col  to-black ">
                     <div className="mx-auto w-full max-w-7xl pb-20 pt-16 text-center lg:py-32 ">
