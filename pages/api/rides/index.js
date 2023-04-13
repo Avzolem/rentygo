@@ -3,6 +3,7 @@ import nc from "next-connect";
 import clientPromise from "@/lib/mongodb";
 import ncoptions from "@/config/ncoptions";
 import { dateNowUnix } from "@/utils/dates";
+import hardwareactions from "@/lib/hardwareactions";
 
 const handler = nc(ncoptions); //middleware next conect handler
 
@@ -57,6 +58,15 @@ handler.post(async (req, res) => {
     };
 
     const savedRide = await db.collection("rides").insertOne(newRide);
+
+    //hardware on
+    try {
+      hardwareactions.startmotor();
+    } catch (error) {
+      console.error("Error turning on hardware:", error);
+      res.status(500).end(`Sorry, An error occurred 😢`);
+    }
+
     res.json({
       ...car,
       success: true,

@@ -3,8 +3,10 @@ import nc from "next-connect";
 import clientPromise from "@/lib/mongodb";
 import ncoptions from "@/config/ncoptions";
 import { dateNowUnix } from "@/utils/dates";
+import hardwareactions from "@/lib/hardwareactions";
+
 const { ObjectId } = require("mongodb"); // this is for converting strings to ObjectIds
-const ratePerMinute = 0.5;
+const ratePerMinute = 0.5; //Rate in usd per minute
 
 const handler = nc(ncoptions); //middleware next conect handler
 
@@ -64,19 +66,25 @@ handler.delete(async (req, res) => {
     //calculate price
     const price = (timeDifferenceUnix * ratePerMinute) / 60;
 
-    const { value } = await db
-      .collection("rides")
-      .findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        {
-          $set: {
-            endUnix: dateNowUnix(),
-            status: "ended",
-            price: price.toFixed(2),
-          },
+    const { value } = await db.collection("rides").findOneAndUpdate(
+      { _id: new ObjectId(id) },
+      {
+        $set: {
+          endUnix: dateNowUnix(),
+          status: "ended",
+          price: price.toFixed(2),
         },
-        { returnOriginal: false }
-      );
+      },
+      { returnOriginal: false }
+    );
+
+    //hardware off
+    try {
+      hardwareactions.turnoffcar();
+    } catch (error) {
+      console.error("Error turning on hardware:", error);
+      res.status(500).end(`Sorry, An error occurred 😢`);
+    }
 
     res.json(value);
   } catch (error) {
