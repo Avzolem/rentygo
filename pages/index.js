@@ -41,14 +41,6 @@ export default function Home() {
         <div>
             <ParticlesBackground />
             <MainLayout>
-                <Head>
-                    <title>RentyGo</title>
-                    <meta
-                        name="description"
-                        content="RentyGo is a platform that allows you to rent your car to other people"
-                    />
-                </Head>
-
                 <main className="relative mb-auto flex flex-col  to-black ">
                     <div className="mx-auto w-full max-w-7xl pb-20 pt-16 text-center lg:py-32 ">
                         <div className="px-4 sm:px-8 lg:w-full ">
