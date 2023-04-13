@@ -23,7 +23,7 @@ const logoUrl = "/logo.png";
 const navigation = {
     categories: [],
     pages: [
-        { name: "CAR CATALOGUE", href: "/eventos" },
+        { name: "CAR CATALOGUE", href: "/catalogue" },
         { name: "CONTACT US ", href: "/contact" },
         { name: "SLIDE DECK ", href: "/slideck" },
     ],
@@ -43,6 +43,16 @@ const Header = () => {
         publicKey,
         truncatePublicKey,
     } = useContext(AuthContext);
+
+    console.log("publicKey", publicKey);
+
+    //handle signout stat
+    useEffect(() => {
+        if (!publicKey) {
+            console.log("log out and redirect");
+            router.push("/");
+        }
+    }, [publicKey]);
 
     return (
         <Popover className="relative ">
@@ -81,6 +91,17 @@ const Header = () => {
                             ))}
                         </Popover.Group>
                     </div>
+                    {/* //signout from wallet if connected */}
+                    {publicKey && (
+                        <button
+                            className="bg-red-400 px-2 py-2 text-white"
+                            onClick={() => {
+                                signOut();
+                            }}
+                        >
+                            Log out
+                        </button>
+                    )}
                 </div>
             </div>
         </Popover>
