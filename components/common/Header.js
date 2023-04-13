@@ -51,7 +51,7 @@ const Header = () => {
                                 <img
                                     className="h-8 w-auto sm:h-10"
                                     src={logoUrl}
-                                    alt="aucoin logo"
+                                    alt="logoUrl"
                                 />
                             </a>
                         </Link>
@@ -120,24 +120,6 @@ const Header = () => {
                                                     </Link>
                                                 )}
                                             </Menu.Item>
-                                            {true && (
-                                                <Menu.Item>
-                                                    {({ active }) => (
-                                                        <Link href="/admin/dashboard">
-                                                            <a
-                                                                className={classNames(
-                                                                    active
-                                                                        ? "bg-black"
-                                                                        : "",
-                                                                    "block px-4 py-2 text-sm text-black"
-                                                                )}
-                                                            >
-                                                                Admin Dashboard
-                                                            </a>
-                                                        </Link>
-                                                    )}
-                                                </Menu.Item>
-                                            )}
 
                                             <Menu.Item>
                                                 {({ active }) => (

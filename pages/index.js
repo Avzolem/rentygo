@@ -30,7 +30,10 @@ export default function Home() {
                     console.log("Este es el result.data =>  ", response);
                 },
                 (error) => {
-                    console.log("AL CHILE CHAT GPT NO LA ARMA", error);
+                    console.log(
+                        "Error al enviar post al api de Adafruit",
+                        error
+                    );
                 }
             );
     };

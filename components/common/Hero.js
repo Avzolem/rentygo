@@ -88,7 +88,7 @@ export default function Hero() {
                                 {" "}
                                 {/* Aqui va la imagen */}
                                 <img
-                                    src="/images/boletines.png"
+                                    src="https://grupocuatricentenaria.com/tienda/image/catalog/NOSOTROS/carros.png"
                                     className="w-[40rem]  "
                                 />
                             </div>
