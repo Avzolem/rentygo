@@ -33,7 +33,7 @@ handler.post(async (req, res) => {
     console.log("car =>", car);
     if (!car) {
       console.error("car does not exist");
-      res.status(500).end(`Sorry, This car does not exists 😢`);
+      res.status(500).end(`Sorry, This car does not existsx 😢`);
       return;
     }
 
@@ -45,6 +45,7 @@ handler.post(async (req, res) => {
     if (inUse) {
       console.error("car is in use");
       res.status(400).end(`Sorry, Selected Car is in use 😢`);
+      return;
     }
 
     //create new default ride
