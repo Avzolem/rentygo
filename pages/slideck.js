@@ -24,18 +24,17 @@ export default function Slideck() {
                             your rental car
                         </span>
                         <div className="mt-8 flex justify-center">
-                            <div class="w-full">
+                            <div className="w-full">
                                 <img
                                     src="https://grupocuatricentenaria.com/tienda/image/catalog/NOSOTROS/carros.png"
-                                    class="w-[40rem] "
-                                    alt="boletos"
+                                    className="w-[40rem] rounded-xl"
                                 />
                             </div>
                         </div>
 
                         <br />
                         <br />
-                        <span className="text-2xl font-bold tracking-tight text-white  ">
+                        <span className="text-2xl font-bold tracking-tight text-black  ">
                             Here is a video that explains how it works
                         </span>
 
@@ -45,99 +44,88 @@ export default function Slideck() {
                         <LiteYouTubeEmbed
                             aspectHeight={9}
                             aspectWidth={16}
-                            id="OKK8O7dqwis"
-                            title="EzTicket"
+                            id="MV_3Dpw-BRY"
+                            title="RentyGo"
                         />
 
                         <br />
                         <br />
 
-                        <span className="justify-center text-2xl font-bold text-white  ">
-                            Extra Repositories
+                        <span className="justify-center text-2xl font-bold text-black  ">
+                            Repositories
                         </span>
                         <br />
                         <br />
-                        <span className="justify-center  text-white  ">
-                            Solana Rust Program ⚙️
+                        <span className="justify-center  text-black  ">
+                            Sistema Embebido ⚙️
                         </span>
                         <br />
                         <Link href="https://github.com/ramonnajera/ezticket">
                             <span className="justify-center  text-sky-500  ">
-                                https://github.com/ramonnajera/ezticket
+                                https://github.com/Avzolem/rentygo-sistemaembebido
                             </span>
                         </Link>
                         <br />
                         <br />
-                        <span className="justify-center  text-white  ">
-                            Candy Machine 🍬
+                        <span className="justify-center  text-black  ">
+                            Plataforma Web y WPA 🌐
                         </span>
                         <br />
                         <Link href="https://github.com/Avzolem/candy-machine-eztickets">
                             <span className="justify-center  text-sky-500  ">
-                                https://github.com/Avzolem/candy-machine-eztickets
-                            </span>
-                        </Link>
-                        <br />
-                        <br />
-                        <span className="justify-center  text-white  ">
-                            Native Mobile App 📲
-                        </span>
-                        <br />
-                        <Link href="https://github.com/jonamx13/EzTickets_App">
-                            <span className="justify-center  text-sky-500  ">
-                                https://github.com/jonamx13/EzTickets_App
+                                https://github.com/Avzolem/rentygo
                             </span>
                         </Link>
                         <br />
                         <br />
 
-                        <span className="justify-center text-2xl font-bold text-white  ">
+                        <span className="justify-center text-2xl font-bold text-black  ">
                             Our Dev Team 🌭
                         </span>
                         <div className="mt-8 grid grid-cols-2 justify-center">
                             <div className="mt-8 flex-col justify-center px-5">
-                                <div class="w-full">
+                                <div className="w-full">
                                     <img
                                         src="/images/ramon.jpeg"
-                                        class="w-[20rem] "
+                                        className="w-[20rem] rounded-xl"
                                     />
-                                    <span className="justify-center text-2xl font-bold text-white  ">
+                                    <span className="justify-center text-2xl font-bold text-black  ">
                                         Ramon Najera
                                     </span>
                                 </div>
                             </div>
 
                             <div className="mt-8 flex-col justify-center px-5">
-                                <div class="w-full">
+                                <div className="w-full">
                                     <img
                                         src="/images/andres.png"
-                                        class="w-[20rem] "
+                                        className="w-[20rem] rounded-xl"
                                     />
-                                    <span className="justify-center text-2xl font-bold text-white  ">
+                                    <span className="justify-center text-2xl font-bold text-black  ">
                                         Andres Aguilar
                                     </span>
                                 </div>
                             </div>
 
                             <div className="mt-8 flex-col justify-center px-5">
-                                <div class="w-full">
+                                <div className="w-full">
                                     <img
-                                        src="/images/bart.jpeg"
-                                        class="w-[20rem] "
+                                        src="/images/javier.png"
+                                        className="w-[20rem] rounded-xl"
                                     />
-                                    <span className="justify-center text-2xl font-bold text-white  ">
-                                        Bart Lopez
+                                    <span className="justify-center text-2xl font-bold text-black  ">
+                                        Javier Martinez
                                     </span>
                                 </div>
                             </div>
                             <div className="mt-8 flex-col justify-center px-5">
-                                <div class="w-full">
+                                <div className="w-full">
                                     <img
-                                        src="/images/jona.jpeg"
-                                        class="w-[20rem] "
+                                        src="/images/magio.png"
+                                        className="w-[20rem] rounded-xl "
                                     />
-                                    <span className="justify-center text-2xl font-bold text-white  ">
-                                        Jonathan Meixueiro
+                                    <span className="justify-center text-2xl font-bold text-black  ">
+                                        Magio Bustillos
                                     </span>
                                 </div>
                             </div>
@@ -150,27 +138,27 @@ export default function Slideck() {
                         <div className="relative mx-auto flex justify-center overflow-hidden ">
                             {" "}
                             <img
-                                src="https://solana.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fdark-horizontal.e4df684f.svg&w=256&q=75"
+                                src="https://cdn.substack.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F8d6c8ff9-e171-4223-a4b2-1384ee7530b8_2568x643.png"
                                 className=" w-[15rem]  "
                             />
                         </div>
-                        <div className="relative mx-auto flex justify-center overflow-hidden ">
-                            {" "}
-                            <img
-                                src="/images/grizzlython.png"
-                                className=" w-[15rem]  "
-                            />
-                        </div>
-
                         <br />
-                        <span className="justify-center text-xl text-white">
+                        <br />
+                        <span className="justify-center text-xl text-black">
                             With all the power of the Solana blockchain to
                             create a user experience matchless.
                         </span>
-
                         <br />
                         <br />
-                        <h2 className="text-base font-semibold leading-7 text-indigo-400">
+                        <div className="relative mx-auto flex justify-center overflow-hidden ">
+                            {" "}
+                            <img
+                                src="https://www.talent-land.mx/wp-content/uploads/2022/09/tl2023-og.png"
+                                className=" w-[25rem]  rounded-xl"
+                            />
+                        </div>
+                        <br />
+                        <h2 className="text-base font-semibold leading-7 text-cyan-500">
                             Developed by HackDogs
                         </h2>
                         <br />
@@ -185,12 +173,12 @@ export default function Slideck() {
                         <br />
                         <br />
 
-                        <h1 className="text-white-900 text-4xl font-bold tracking-tight sm:text-3xl md:text-4xl">
-                            <span className=" text-white">Get an </span>{" "}
+                        <h1 className="text-black-900 text-4xl font-bold tracking-tight sm:text-3xl md:text-4xl">
+                            <span className=" text-black">Get an </span>{" "}
                             <span className=" bg-gradient-to-r  from-emerald-500 via-indigo-500  to-purple-500 bg-clip-text text-transparent ">
                                 EzTickets{" "}
                             </span>
-                            <span className=" text-white ">
+                            <span className=" text-black ">
                                 for the events you{" "}
                             </span>{" "}
                             <span className=" text-purple-500">love. </span>{" "}

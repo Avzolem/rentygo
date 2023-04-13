@@ -93,7 +93,7 @@ const Header = () => {
                     {/* //signout from wallet if connected */}
                     {publicKey && (
                         <button
-                            className="bg-red-400 px-2 py-2 text-white"
+                            className="rounded-xl bg-cyan-800 px-2 py-2 text-white"
                             onClick={() => {
                                 signOut();
                             }}
