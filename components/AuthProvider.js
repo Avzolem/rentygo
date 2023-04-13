@@ -64,6 +64,7 @@ const AuthContextProvider = (props) => {
   };
 
   const signOut = () => {
+    console.log("signout...");
     if (window) {
       const { solana } = window;
       window.localStorage.removeItem("publicKey");
