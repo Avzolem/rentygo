@@ -40,7 +40,7 @@ const Footer = () => {
                             href={item.href}
                             className="text-cyan-500 "
                         >
-                            <div className="iconcontainer h-6 w-6 cursor-pointer text-white hover:text-purple-500">
+                            <div className="iconcontainer h-6 w-6 cursor-pointer text-cyan-500 hover:text-purple-500">
                                 <SocialIcon type={item.icon} />
                             </div>
                         </a>
